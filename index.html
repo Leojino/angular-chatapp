@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Chat App</title>
+</head>
+<body>
+    <header>
+        Chat App
+    </header>
+    <div id="chat-room" class="chat-room" ng-controller="ChatRoomController">
+        <div class="chat-box">
+            <ul class="list-unstyled">
+                <li ng-repeat="chat in chats" ng-switch="chat.msg_type">
+                    <div ng-switch-when="text_msg_2">
+                        <ng-include src="'tmpl2.html'"></ng-include>
+                    </div>
+                    <div ng-switch-when="text_msg">
+                        <ng-include src="'tmpl1.html'"></ng-include>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="chat-form">
+            <form action="" class="" ng-submit="chatSubmit($event);">
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm" ng-model="chatFormData.msg"  placeholder="Type your message here..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm">Send</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+</body>
+</html>
