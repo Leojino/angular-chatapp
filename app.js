@@ -4,11 +4,27 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');         // log requests to the console (express4)
 var bodyParser = require('body-parser'); 
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+
+  socket.on('chat-message', function(msg){
+    console.log('message: '+msg);
+
+    io.emit('chat-message', "welcome");
+  });
+
+});
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -45,7 +61,7 @@ app.use(function(err, req, res, next) {
 });
 
 // listen (start app with node server.js) ======================================
-app.listen(8080);
+http.listen(8080);
 console.log("App listening on port 8080");
 
 module.exports = app;
