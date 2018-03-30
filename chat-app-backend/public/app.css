@@ -1,0 +1,14 @@
+html, body{
+    height: 100%;
+}
+.chat-room{
+    height: calc(100% - 20px);
+}
+.chat-box{
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid grey;
+}
+.chat-form{
+    padding: 0 10px;
+}
