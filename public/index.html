@@ -20,7 +20,7 @@
         <h2>Chat App</h2>
     </header>
     <div id="chat-room" class="chat-room" ng-controller="ChatRoomController">
-        <div class="chat-box">
+        <div class="chat-box" scroll-to-bottom="chats">
             <div class="chat-scroller">
                 <ul class="list-unstyled">
                     <li class="chat-wrapper clearfix" ng-repeat="chat in chats" ng-switch="chat.msg_type">
