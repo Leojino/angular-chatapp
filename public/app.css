@@ -2,13 +2,43 @@ html, body{
     height: 100%;
 }
 .chat-room{
-    height: calc(100% - 20px);
+    position: relative;
+    height: calc(100% - 65px);
 }
 .chat-box{
     padding: 5px;
-    margin: 10px;
+    padding-bottom: 50px;
+    height: 100%;
     border: 1px solid grey;
+    background-color: #9E9E9E;
+    overflow: auto;
 }
+.chat-box .chat-wrapper>div{
+    max-width: 80%;
+}
+.chat-box .thumbnail{
+    /* margin: 10px 0; */
+    display: inline-block;
+    background-color: #2196F3;
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.chat-box .thumbnail .caption{
+    padding: 6px 15px;
+}
+.chat-box .thumbnail h4{
+    margin-top: 0;
+}
+
+.chat-box .thumbnail p{
+    margin: 0;
+}
+
 .chat-form{
     padding: 0 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    z-index: 100;
 }

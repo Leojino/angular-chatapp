@@ -4,23 +4,23 @@ chatApp.controller('ChatRoomController', function($scope){
 
 
     socket.on('chat-message', function(msg){
-        $scope.addToChatBox('msg', 'server');
+        $scope.addToChatBox(msg, 'server');
         $scope.$apply();
     });
 
     $scope.chatFormData = {};
 
     $scope.chats = [
-        {
-            "name": "user",
-            "msg": "Sample text",
-            "msg_type": "text_msg"
-        },
-        {
-            "name":"user",
-            "msg":"sample text 2",
-            "msg_type": "text_msg_2"
-        }
+        // {
+        //     "name": "user",
+        //     "msg": "Sample text",
+        //     "msg_type": "text_msg"
+        // },
+        // {
+        //     "name":"user",
+        //     "msg":"sample text 2",
+        //     "msg_type": "text_msg_2"
+        // }
     ]
 
     $scope.chatSubmit = function(e) {

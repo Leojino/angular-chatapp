@@ -14,6 +14,9 @@ var usersRouter = require('./routes/users');
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  io.emit('chat-message', "welcome");
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
