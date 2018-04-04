@@ -1,0 +1,8 @@
+<div class="thumbnail">
+    <img ng-if="chat.media.type === 'image'" ng-src="{{ chat.media.url }}" alt="Image Template">
+    <video ng-if="chat.media.type == 'video'" ng-src="{{ chat.media.url }}" controls></video>
+    <div class="caption">
+        <h4>{{ chat.name }}</h4>
+        <p style="white-space: pre;">{{ chat.msg }}</p>
+    </div>
+</div>

@@ -9,25 +9,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require('./routes/users')(io);
 
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-
-  io.emit('chat-message', "welcome");
-
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-
-  socket.on('chat-message', function(msg){
-    console.log('message: '+msg);
-
-    io.emit('chat-message', "welcome");
-  });
-
-});
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -45,7 +28,7 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +48,6 @@ app.use(function(err, req, res, next) {
 
 // listen (start app with node server.js) ======================================
 http.listen(8080);
-console.log("App listening on port 8080");
+// console.log("App listening on port 8080");
 
 module.exports = app;

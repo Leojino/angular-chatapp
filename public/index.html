@@ -23,12 +23,15 @@
         <div class="chat-box" scroll-to-bottom="chats">
             <div class="chat-scroller">
                 <ul class="list-unstyled">
-                    <li class="chat-wrapper clearfix" ng-repeat="chat in chats" ng-switch="chat.msg_type">
-                        <div ng-switch-when="text_msg_2" class="clearfix" ng-class="chat.name == 'user'? 'pull-right' : ''">
-                            <ng-include src="'tmpl2.html'"></ng-include>
+                    <li class="chat-wrapper clearfix" ng-repeat="chat in chats" ng-switch="chat.type">
+                        <div ng-switch-when="text_template" class="clearfix" ng-class="chat.name == 'user'? 'pull-right' : ''">
+                            <ng-include src="'chat_templates/text_template.html'"></ng-include>
                         </div>
-                        <div ng-switch-when="text_msg" class="clearfix" ng-class="chat.name == 'user'? 'pull-right' : ''">
-                            <ng-include src="'tmpl1.html'"></ng-include>
+                        <div ng-switch-when="media_template" class="clearfix" ng-class="chat.name == 'user'? 'pull-right' : ''">
+                            <ng-include src="'chat_templates/media_template.html'"></ng-include>
+                        </div>
+                        <div ng-switch-when="button_template" class="clearfix" ng-class="chat.name == 'user'? 'pull-right' : ''">
+                            <ng-include src="'chat_templates/button_template.html'"></ng-include>
                         </div>
                     </li>
                 </ul>
